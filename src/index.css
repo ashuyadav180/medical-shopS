@@ -1,0 +1,286 @@
+/* --- 1. Global Reset, Typography, and Color Palette --- */
+
+:root {
+  /* Brand Colors: Trusted Blue, Clean White, Subtle Accent */
+  --color-primary: #007bff;        /* Brand Blue (for buttons, links, emphasis) */
+  --color-success: #28a745;        /* Green (for Add to Cart, success messages) */
+  --color-background: #f4f6f8;     /* Very Light Gray for main background */
+  --color-surface: #ffffff;        /* White for cards, forms, and headers */
+  --color-text-dark: #212529;      /* Dark text for high legibility */
+  --color-text-subtle: #6c757d;    /* Gray for secondary text */
+  --color-border: #e9ecef;         /* Light border for structure */
+  --header-height: 70px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--color-text-dark);
+  background-color: var(--color-background);
+  line-height: 1.5;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Base Link Styling */
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+h1, h2 {
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+
+/* --- 2. Layout and Structure --- */
+
+.main-content {
+  flex-grow: 1;
+  padding: 30px 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* --- 3. Navbar (Header) Styles --- */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  height: var(--header-height);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.navbar h1 a {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.navbar nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.navbar nav a {
+  color: var(--color-text-dark);
+  font-weight: 500;
+  padding: 5px 0;
+  position: relative;
+}
+
+.navbar nav a:hover {
+  color: var(--color-primary);
+}
+
+/* --- 4. Buttons and Form Elements --- */
+
+button {
+  cursor: pointer;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 12px 25px;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 1.1rem;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+/* --- 5. Medicine Card/Listing Styles --- */
+
+.medicine-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.medicine-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s;
+}
+
+.medicine-card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.medicine-card h3 a {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.medicine-card .price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-success);
+  margin: 15px 0;
+}
+
+.medicine-card button {
+  background-color: var(--color-success);
+  color: white;
+  margin-top: auto; /* Pushes button to the bottom */
+  width: 100%;
+}
+
+.medicine-card button:hover {
+  background-color: #1e7e34;
+}
+
+/* --- 6. Form/Auth Styles (Login, Register, Checkout) --- */
+
+.auth-page, .checkout-page {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 40px;
+  background: var(--color-surface);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form input, .shipping-form input, .shipping-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.auth-form button, .place-order-button {
+  background-color: var(--color-primary);
+  color: white;
+  width: 100%;
+  padding: 14px;
+  font-size: 1.1rem;
+}
+
+.place-order-button {
+    background-color: var(--color-success);
+}
+
+/* --- 7. Cart & Checkout Layout --- */
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.order-summary {
+    padding: 20px;
+    background: var(--color-surface);
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px dashed var(--color-border);
+}
+
+.cart-summary h3 {
+    margin-top: 20px;
+    border-top: 2px solid var(--color-border);
+    padding-top: 15px;
+}
+
+/* --- 8. Home Page Sections --- */
+
+.hero-section {
+    padding: 80px 40px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-primary), #00aaff);
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.features-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.feature-item {
+    background: var(--color-surface);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.feature-item h3 {
+    color: var(--color-primary);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+/* --- 9. Footer Styles --- */
+
+.footer {
+  padding: 25px 20px;
+  background-color: var(--color-text-dark);
+  color: var(--color-background);
+  text-align: center;
+  font-size: 0.9rem;
+}
